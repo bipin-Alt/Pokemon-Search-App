@@ -74,7 +74,7 @@ input[type ="text"]{
     }
 }
 .loader{
-    display: none;
+    /* display: none; */
     border :.5rem solid #EAF8E7;
     border-top:.5rem solid #19384A;
     border-radius:50%;
@@ -100,5 +100,16 @@ input[type ="text"]{
     height:auto;
     width:100%;
     border-radius:.2rem;
-    box-shadow:0 5px 15px #ffffff;
+    filter:drop-shadow(5px 8px 12px #734124);
+    &:hover{
+        filter: brightness(1),
+        drop-shadow(7px 10px 12px #734124);
+        transform: scale(1.01);
+    }
+}
+table, th, td {
+    background-color:#010D26;
+    border:1px solid #EAF8E7;
+    width:70%;
+    margin-top:1.5rem;
 }
