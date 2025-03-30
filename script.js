@@ -1,73 +1,73 @@
+const showPokemonImg = document.querySelector(".pokemon-img");
+const loader = document.getElementById("loader");
+const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
+const pokemonName = document.getElementById("pokemon-name");
+const pokemonId = document.getElementById("pokemon-id");
+const pokemonWeight = document.getElementById("weight");
+const pokemonHeight = document.getElementById("height");
+const pokemonType = document.getElementById("types");
+const pokemonHp = document.getElementById("hp");
+const pokemonAttack = document.getElementById("attack");
+const pokemonDefense = document.getElementById("defense");
+const pokemonSpecialDefense = document.getElementById("special-defense");
+const pokemonSpecialAttack = document.getElementById("special-attack");
+const pokemonSpeed = document.getElementById("speed");
 
-const fetchPokemon = async ()=>{
-   try{
-    const pokemonNameOrId = document.getElementById("search-input").value.toLowerCase();
-    const response = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`);
+const fetchPika = async () => {
+  setTimeout(()=>{
+    if(loader.style.display="none"){
+      loader.style.display ="block";
+    };
+  },0);
+  setTimeout(()=>{
+    if(loader.style.display="block"){
+      loader.style.display="none";
+    };
+  },2000);
+  try{
+    const searchPokemonName = searchInput.value.toLowerCase();
+    const response = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${searchPokemonName}`);
     const data = await response.json();
     console.log(data);
-     
-    //set pokemon stats//
-    const tableForStats = document.querySelector(".pokemon-stats");
-    const pokemonImageContainer = document.querySelector(".pokemon-img")
-    pokemonImageContainer.innerHTML =`
-    <img id="image" src="${data.sprites.font_default}" alt="${data.name}">`;
-    tableForStats.innerHTML =`
-    <tr>
-        <th>Base</th>
-        <th>Stats</th>
-    </tr>
-    <tr>
-    <tb>Name </tb>  
-    <tb id ="pokemon-name">${data.name.toUpperCase()}</tb>   
-    </tr>
-    <tr>
-    <tb>Id </tb>
-    <tb id="pokemon-id">${data.id}</tb>
-    </tr>
-    <tr>
-    <tb>Weight </tb>
-    <tb id="weight">${data.weight}</tb>
-    </tr>
-    <tr>
-    <tb>Height</tb>
-    <tb id ="height">${data.height}</tb>
-    </tr>
-    <tr>
-    <tb>Types</tb>
-    <tb id="types">${data.types.map(obj =>`<span class="type ${obj.type.name}">${obj.type.name}</span>`)
-      .join('')}</tb>
-    </tr>
-    <tr>
-    <tb>HP</tb>
-    <tb id="hp">${data.stats[0].base_stat}</tb>
-    </tr>
-    <tr>
-    <tb>Attack</tb>
-    <tb id="attack">${data.stats[1].base_stat}</tb>
-    </tr>
-    <tr>
-    <tb>Defense</tb>
-    <tb id="defense">${data.stats[2].base_stat}</tb>
-    </tr>
-    <tr>
-    <tb>Special-attack</tb>
-    <tb id="special-attack">${data.stats[3].base_stat}</tb>
-    </tr>
-    <tr>
-    <tb>Special-defense</tb>
-    <tb id="special-defense">${data.stats[4].base_stat}</tb>
-    </tr>  
-    <tr>
-    <tb>Speed</tb>
-    <tb id="speed">${data.stats[5].base_stat}</tb>
-    </tr>`;
-   } catch(err){
-     alert("Pokemon Not Found!!!");
-     console.log(`Failed to get Pokemon due to: ${err}`);
-   }
+    pokemonName.textContent =`${data.name.toUpperCase()}`;
+    pokemonId.textContent =`${data.id}`;
+    pokemonWeight.textContent=`${data.weight}`
+    pokemonHeight.textContent=`${data.height}`;
+    showPokemonImg.innerHTML = `
+    <img id="sprite" src="${data.sprites.front_default}" alt="${data.name} front default sprite">
+    `;
+
+    //set stats //
+    pokemonHp.textContent= data.stats[0].base_stat;
+    pokemonAttack.textContent = data.stats[1].base_stat;
+    pokemonDefense.textContent=data.stats[2].base_stat;
+    pokemonSpecialAttack.textContent= data.stats[3].base_stat;
+    pokemonSpecialDefense.textContent = data.stats[4].base_stat;
+    pokemonSpeed.textContent = data.stats[5].base_stat;
+    //set type 
+    pokemonType.innerHTML = data.types.map(obj => `<span class="type ${obj.type.name}">${obj.type.name}</span>`).join("");
+  }catch(err){
+     resetStats();
+     alert("Pokemon not Found");
+     console.log(`Pokemon not found due to: ${err}`);
+  }
 };
+const resetStats = ()=>{
+    searchInput.textContent="";
+    pokemonName.textContent="";
+    pokemonId.textContent="";
+    pokemonHeight.textContent="";
+    pokemonAttack.textContent="";
+    pokemonDefense.textContent="";
+    pokemonHp.textContent="";
+    pokemonType.textContent="";
+    pokemonSpecialAttack.textContent="";
+    pokemonSpeed.textContent="";
+    pokemonSpecialDefense.textContent="";
+    pokemonWeight.textContent="";
+    
+}
 
-//addEventListener to the search Button//
-searchBtn.addEventListener("click",fetchPokemon());
 
+searchBtn.addEventListener("click", fetchPika);
