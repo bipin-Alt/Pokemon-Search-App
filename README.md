@@ -14,13 +14,5 @@ This is my final project for the **freeCodeCamp JavaScript Certification**! The 
 - **HTML & CSS** (Custom Styling, Animations)  
 
 ## 🚀 Live Demo  
-🔗 [Live Project Link](your-live-demo-link)  
+🔗https://bipin-alt.github.io/Pokemon-Search-App/ 
 
-## 📜 Certification  
-This project is part of my **freeCodeCamp JavaScript Certification**:  
-📜 [[View Certification](https://www.freecodecamp.org/certification/AltBipin27/javascript-algorithms-and-data-structures-v8)]
-
-## 📂 Installation  
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/your-username/pokemon-search-app.git
