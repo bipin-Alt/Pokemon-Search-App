@@ -1,16 +1,26 @@
-📝 Pokémon Search App – My final project for freeCodeCamp's JavaScript certification!
+# 🎮 Pokémon Search App  
 
-This web app lets users search for any Pokémon and fetch real-time data using the PokéAPI Proxy. It displays essential details like height, weight, stats, and type.
+This is my final project for the **freeCodeCamp JavaScript Certification**! The **Pokémon Search App** allows users to search for their favorite Pokémon and retrieve real-time data, including stats, type, height, weight, and more.  
 
-🔹 Tech Stack:
-✅ JavaScript (DOM Manipulation, API Fetching, Async/Await)
-✅ HTML, CSS (Custom Styling & Animations)
+## 🌟 Features  
+✅ Search for any Pokémon by name  
+✅ Fetch real-time data using **PokéAPI Proxy**  
+✅ Display Pokémon image & base stats dynamically  
+✅ Smooth UI with **loader animation**  
+✅ **Error handling** for invalid Pokémon names  
 
-💡 Features:
-✔ Search Pokémon by name
-✔ Display Pokémon image & stats dynamically
-✔ Error handling for invalid names
-✔ Loader animation for smooth UX
+## 🛠 Tech Stack  
+- **JavaScript** (DOM Manipulation, Async/Await, Fetch API)  
+- **HTML & CSS** (Custom Styling, Animations)  
 
-📌 Check out the full project: 
- Try it out : 
+## 🚀 Live Demo  
+🔗 [Live Project Link](your-live-demo-link)  
+
+## 📜 Certification  
+This project is part of my **freeCodeCamp JavaScript Certification**:  
+📜 [[View Certification](https://www.freecodecamp.org/certification/AltBipin27/javascript-algorithms-and-data-structures-v8)]
+
+## 📂 Installation  
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/your-username/pokemon-search-app.git
